@@ -7,8 +7,12 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
-    <script>
+    <div class="mixpanel-platform-section">
       
+    <div id="dateSelect" style="float: right;"></div>
+    
+    </div>
+    <script>
       /* 
       Requirements: 
       - Table 1:
@@ -17,6 +21,19 @@
         - include conversion rate, i.e. the percentage of advanced who were beginner 
       */ 
       
+      /* Variables */
+      var dateSelect  = $('#dateSelect').MPDatepicker();
+      var eventName = '$custom_event:70135';
+      var params = {
+        
+      }
+      
+      /* Query */
+      //TODO: want to run the query on load 
+      var runQuery = function() {
+        
+      };
+      dateSelect.on('change', runQuery);
     </script>
   </body>
 </html>
