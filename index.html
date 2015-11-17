@@ -68,9 +68,9 @@
                MP.api.segment(eventName, null, highlyEngagedParams).done(function(results4) {
                 finalStruct.push(results4.values());
                 calculateOutputs(finalStruct);
-               }
-             }
-           }
+               });
+             });
+           });
          });
       };
       
