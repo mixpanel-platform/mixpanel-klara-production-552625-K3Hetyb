@@ -27,7 +27,7 @@
       var eventName = '$custom_event:70135';
 
       MP.api.segment(eventName, 'Entity Type', dateRange).done(function(results) {
-        console.log(results);
+        console.log(results.values());
       });
       /* Query */
       //TODO: want to run the query on load 
