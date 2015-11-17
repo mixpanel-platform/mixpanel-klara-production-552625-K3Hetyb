@@ -32,6 +32,27 @@
         unit:'month',
         frequency:(0,4)
       };
+      var activeParams = {
+        to:dateRange.to,
+        from:dateRange.from,
+        type:'unique',
+        unit:'month',
+        frequency:(3,20)
+      };
+      var engagedParams = {
+        to:dateRange.to,
+        from:dateRange.from,
+        type:'unique',
+        unit:'month',
+        frequency:(19,80)
+      };
+      var highlyEngaged = {
+        to:dateRange.to,
+        from:dateRange.from,
+        type:'unique',
+        unit:'month',
+        frequency:80
+      };
       var queriesComplete = 0;
 
       /* Query */
@@ -39,7 +60,6 @@
       var runQuery = function() {
          MP.api.segment(eventName, null, beginnerParams).done(function(results) {
            console.log(results.values());
-          
          });
       };
       
