@@ -41,13 +41,14 @@
            console.log(results.values());
            queriesComplete++;
          });
-      };
-      while(true){
-        if(queriesComplete == 1){
-          break;
+         while(true){
+          if(queriesComplete == 1){
+            break;
+          }
         }
-      }
-      console.log('complete');
+        console.log('complete');
+      };
+      
       dateSelect.on('change', runQuery);
     </script>
   </body>
