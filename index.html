@@ -46,7 +46,7 @@
         unit:'month',
         frequency:(19,80)
       };
-      var highlyEngaged = {
+      var highlyEngagedParams = {
         to:dateRange.to,
         from:dateRange.from,
         type:'unique',
@@ -58,8 +58,19 @@
       /* Query */
       //TODO: want to run the query on load 
       var runQuery = function() {
+        var finalStruct = [];
          MP.api.segment(eventName, null, beginnerParams).done(function(results) {
-           console.log(results.values());
+           finalStruct.push(results.values());
+           MP.api.segment(eventName, null, activeParams).done(function(results2) {
+             finalStruct.push(results2.values());
+             MP.api.segment(eventName, null, engagedParams).done(function(results3) {
+               finalStruct.push(results3.values());
+               MP.api.segment(eventName, null, highlyEngagedParams).done(function(results4) {
+                finalStruct.push(results4.values());
+                calculateOutputs(finalStruct);
+               }
+             }
+           }
          });
       };
       
