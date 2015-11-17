@@ -25,20 +25,23 @@
       var dateSelect  = $('#dateSelect').MPDatepicker();
       var dateRange = dateSelect.MPDatepicker('value');
       var eventName = '$custom_event:64721';
-      var params = {
+      var beginnerParams = {
         to:dateRange.to,
         from:dateRange.from,
         type:'unique',
         unit:'month',
         frequency:(0,4)
       };
+      var queriesComplete = 0;
 
       /* Query */
       //TODO: want to run the query on load 
       var runQuery = function() {
-         MP.api.segment(eventName, null, params).done(function(results) {
+         MP.api.segment(eventName, null, beginnerParams).done(function(results) {
            console.log(results.values());
+           queriesComplete++;
          });
+         console.log(queriesComplete);
       };
       dateSelect.on('change', runQuery);
     </script>
