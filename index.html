@@ -122,6 +122,7 @@
         // Print our data structure
         console.log(outputStructure);
         
+        /* Build Table 1 */
         // Get table
         var table = document.getElementById("t01");
         
@@ -164,6 +165,14 @@
             }
             colCount++;
           }
+        }
+        
+        /* Build Table 2 */
+        var table = document.getElementById("t02");
+        
+        // Delete previous rows
+        while(table.rows.length > 0) {
+          table.deleteRow(0);
         }
 
       }
