@@ -53,46 +53,48 @@
       */ 
       
       /* Variables */
-      var dateSelect  = $('#dateSelect').MPDatepicker();
-      var dateRange = dateSelect.MPDatepicker('value');
       var eventName = '$custom_event:64721';
       var queriesComplete = 0;
+      var dateSelect  = $('#dateSelect').MPDatepicker();
       
-      /* Segmentation Parameters */
-      var beginnerParams = {
-        to:dateRange.to,
-        from:dateRange.from,
-        type:'unique',
-        unit:'month',
-        frequency:(0,4)
-      };
-      var activeParams = {
-        to:dateRange.to,
-        from:dateRange.from,
-        type:'unique',
-        unit:'month',
-        frequency:(3,20)
-      };
-      var engagedParams = {
-        to:dateRange.to,
-        from:dateRange.from,
-        type:'unique',
-        unit:'month',
-        frequency:(19,80)
-      };
-      var highlyEngagedParams = {
-        to:dateRange.to,
-        from:dateRange.from,
-        type:'unique',
-        unit:'month',
-        frequency:80
-      };
+  
       console.log(dateRange.to);
       console.log(dateRange.from);
 
       /* Query */
       //TODO: want to run the query on load 
       var runQuery = function() {
+        var dateRange = dateSelect.MPDatepicker('value');
+        
+         /* Segmentation Parameters */
+        var beginnerParams = {
+          to:dateRange.to,
+          from:dateRange.from,
+          type:'unique',
+          unit:'month',
+          frequency:(0,4)
+        };
+        var activeParams = {
+          to:dateRange.to,
+          from:dateRange.from,
+          type:'unique',
+          unit:'month',
+          frequency:(3,20)
+        };
+        var engagedParams = {
+          to:dateRange.to,
+          from:dateRange.from,
+          type:'unique',
+          unit:'month',
+          frequency:(19,80)
+        };
+        var highlyEngagedParams = {
+          to:dateRange.to,
+          from:dateRange.from,
+          type:'unique',
+          unit:'month',
+          frequency:80
+        };
         var finalStruct = [];
          MP.api.segment(eventName, null, beginnerParams).done(function(results) {
            finalStruct.push(results.values());
