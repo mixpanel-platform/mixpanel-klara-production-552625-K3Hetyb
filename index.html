@@ -127,6 +127,11 @@
         // Get table
         var table = document.getElementById("t01");
         
+        // Delete previous rows
+        while(table.rows.length > 0) {
+          table.deleteRow(0);
+        }
+        
         // Build header
         
         console.log(outputStructure);
