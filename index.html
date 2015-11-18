@@ -40,26 +40,6 @@
     Number of Users Per Category:
     <br /><br />
     <table id="t01">
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>		
-        <th>Points</th>
-      </tr>
-      <tr>
-        <td>Jill</td>
-        <td>Smith</td>		
-        <td>50</td>
-      </tr>
-      <tr>
-        <td>Eve</td>
-        <td>Jackson</td>		
-        <td>94</td>
-      </tr>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>		
-        <td>80</td>
-      </tr>
     </table>
     </div>
     
@@ -76,6 +56,9 @@
       var dateSelect  = $('#dateSelect').MPDatepicker();
       var dateRange = dateSelect.MPDatepicker('value');
       var eventName = '$custom_event:64721';
+      var queriesComplete = 0;
+      
+      /* Segmentation Parameters */
       var beginnerParams = {
         to:dateRange.to,
         from:dateRange.from,
@@ -106,7 +89,6 @@
       };
       console.log(dateRange.to);
       console.log(dateRange.from);
-      var queriesComplete = 0;
 
       /* Query */
       //TODO: want to run the query on load 
