@@ -92,7 +92,10 @@
           frequency:80
         };
         var finalStruct = [];
+        
+        // Number of users per category query
          MP.api.segment(eventName, null, beginnerParams).done(function(results) {
+           // TODO: order results before pushing them in 
            finalStruct.push(results.values());
            MP.api.segment(eventName, null, activeParams).done(function(results2) {
              finalStruct.push(results2.values());
@@ -105,6 +108,9 @@
              });
            });
          });
+         
+         // Number of users per category query cumulative table 
+         
       };
       
       function calculateOutputs(outputStructure){
