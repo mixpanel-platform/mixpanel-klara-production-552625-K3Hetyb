@@ -102,6 +102,8 @@
         unit:'month',
         frequency:80
       };
+      console.log(dateRange.to);
+      console.log(dateRange.from);
       var queriesComplete = 0;
 
       /* Query */
@@ -146,6 +148,17 @@
           var cell = row.insertCell(colCount);
           cell.innerHTML = key;
           colCount++;
+        }
+        
+        // Build rows 
+        for(var i = 0; i < outputStructure.length; i++){
+          var row = table.insertRow(i+1);
+          colCount = 0;
+          for(var key in outputStructure[i][eventName]){
+            var cell = row.insertCell(colCount);
+            cell.innerHTML = outputStructure[i][eventName][key];
+            colCount++;
+          }
         }
 
       }
