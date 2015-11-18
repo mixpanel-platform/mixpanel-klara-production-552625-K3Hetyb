@@ -124,6 +124,9 @@
       };
       
       function calculateOutputs(outputStructure){
+        // Print our data structure
+        console.log(outputStructure);
+        
         // Get table
         var table = document.getElementById("t01");
         
@@ -133,8 +136,16 @@
         }
         
         // Build header
-        
-        console.log(outputStructure);
+        var colCount = 0;
+        var row = table.insertRow(0);
+        //row.id = "eventRow"+i;
+        //row.className = "eventRow";
+        for(var key in outputStructure[0][eventName]){
+          var cell = row.insertCell(colCount);
+          cell.innerHTML = outputStructure[0][eventName][key]
+          colCount++;
+        }
+
       }
       
       
