@@ -143,6 +143,7 @@
         for(var key in outputStructure[0][eventName]){
           var cell = row.insertCell(colCount);
           cell.innerHTML = key;
+          cell.style = "background-color:grey";
           colCount++;
         }
 
