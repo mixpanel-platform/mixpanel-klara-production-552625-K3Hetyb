@@ -85,7 +85,7 @@
            finalStruct['activeData'] = {};
            finalStruct['engagedData'] = {};
            finalStruct['highlyEngagedData'] = {};
-           
+           console.log(results.values());
           // Go through results, check interaction count per user, then bucket user into proper bucket
           for(user_email in results.values()){
             for(date in results.values()[user_email]){
@@ -244,11 +244,14 @@
           var cells = {};
           for(var c = 0; c < dateHeaders.length; c++){
             var cell = row.insertCell(c);
-            if(outputStructure[interactionType][dateHeaders[c]] == undefined){
-              cell.innerHTML = 0;
-            }
-            else{
-              cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
+            var summedValues = 0;
+            for(var a = i; a < 4; a++){
+              if(outputStructure[interactionType][dateHeaders[c]] !== undefined){
+                summedValues += outputStructure[interactionType][dateHeaders[c]];
+              }
+              else{
+                cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
+              }
             }
             colCount++;
           }
