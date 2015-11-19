@@ -139,6 +139,9 @@
         // Print our data structure
         console.log(outputStructure);
         
+        // Set interactionTypes list
+        var interactionTypes = ['beginnerData','activeData','engagedData','highlyEngagedData'];
+        
         /* Build Table 1 */
         // Get table
         var table = document.getElementById("t01");
@@ -246,9 +249,9 @@
             var cell = row.insertCell(c);
             var summedValues = 0;
             for(var a = i; a < 4; a++){
-              if(outputStructure[interactionType][dateHeaders[c]] !== undefined){
-                console.log('row '+i+' cell '+c+' value '+outputStructure[interactionType][dateHeaders[c]]);
-                summedValues += outputStructure[interactionType][dateHeaders[c]];
+              if(outputStructure[interactionTypes[a]][dateHeaders[c]] !== undefined){
+                console.log('row '+i+' cell '+c+' value '+outputStructure[interactionTypes[a]][dateHeaders[c]]);
+                summedValues += outputStructure[interactionTypes[a]][dateHeaders[c]];
               }
             }
             cell.innerHTML = summedValues;
