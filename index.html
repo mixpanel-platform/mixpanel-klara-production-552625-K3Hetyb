@@ -247,6 +247,7 @@
             var summedValues = 0;
             for(var a = i; a < 4; a++){
               if(outputStructure[interactionType][dateHeaders[c]] !== undefined){
+                console.log('row '+i+' cell '+c+' value '+outputStructure[interactionType][dateHeaders[c]]);
                 summedValues += outputStructure[interactionType][dateHeaders[c]];
               }
             }
