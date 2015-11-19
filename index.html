@@ -185,16 +185,16 @@
             console.log('cell  '+dateIndex)
             var cell = row.insertCell(dateIndex);
             cell.innerHTML = outputStructure[interactionType][date];
-            if(dateIndex == 0){
+            if(i == 0){
               cell.style.backgroundColor = "#ffaa80";
             }
-            else if (dateIndex== 1){
+            else if (i== 1){
               cell.style.backgroundColor = "#ffff99";
             }
-            else if(dateIndex== 2){
+            else if(i== 2){
               cell.style.backgroundColor = "#99ddff";
             }
-            else if (dateIndex ==3){
+            else if (i ==3){
               cell.style.backgroundColor = "#99ff66";
             }
             colCount++;
