@@ -181,7 +181,7 @@
           for(var date in outputStructure[interactionType]){
             var dateIndex = dateHeaders.indexOf(date);
             var cell = row.insertCell(dateIndex);
-            cell.innerHTML = outputStructure[i][eventName][key];
+            cell.innerHTML = outputStructure[interactionType][date];
             if(dateIndex == 0){
               cell.style.backgroundColor = "#ffaa80";
             }
