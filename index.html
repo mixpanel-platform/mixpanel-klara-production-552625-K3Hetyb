@@ -164,10 +164,21 @@
         }
         
         // Build rows 
-        /*
         for(var i = 0; i < outputStructure.length; i++){
           var row = table.insertRow(i+1);
           colCount = 0;
+          if(i == 0){
+            var interactionType = 'activeData';
+          }
+          else if(i == 1){
+            
+          }
+          else if(i == 2){
+            
+          }
+          else if(i == 3){
+            
+          }
           for(var key in outputStructure[i][eventName]){
             var cell = row.insertCell(colCount);
             cell.innerHTML = outputStructure[i][eventName][key];
@@ -185,7 +196,7 @@
             }
             colCount++;
           }
-        }*/
+        }
         
         /* Build Table 2 
         
