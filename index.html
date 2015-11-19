@@ -169,20 +169,30 @@
           var row = table.insertRow(i+1);
           if(i == 0){
             var interactionType = 'beginnerData';
+            row.style.backgroundColor = "#ffaa80";
           }
           else if(i == 1){
             var interactionType = 'activeData';
+            row.style.backgroundColor = "#ffff99";
           }
           else if(i == 2){
             var interactionType = 'engagedData';
+            row.style.backgroundColor = "#99ddff";
           }
           else if(i == 3){
             var interactionType = 'highlyEngagedData';
+            row.style.backgroundColor = "#99ff66";
           }
           var cells = {};
           for(var c = 0; c < dateHeaders.length; c++){
             var cell = row.insertCell(c);
-            cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
+            if(outputStructure[interactionType][dateHeaders[c]] == undefined){
+              cell.innerHTML = 0;
+            }
+            else{
+              cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
+            }
+            /*
             if(i == 0){
               cell.style.backgroundColor = "#ffaa80";
             }
@@ -194,7 +204,7 @@
             }
             else if (i ==3){
               cell.style.backgroundColor = "#99ff66";
-            }
+            }*/
             colCount++;
           }
         }
