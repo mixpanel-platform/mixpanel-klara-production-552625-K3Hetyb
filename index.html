@@ -179,12 +179,10 @@
           else if(i == 3){
             var interactionType = 'highlyEngagedData';
           }
-          outputStructure[interactionType].sort();
-          for(var date in outputStructure[interactionType]){
-            var dateIndex = dateHeaders.indexOf(date);
-            console.log('cell  '+dateIndex)
-            var cell = row.insertCell(dateIndex);
-            cell.innerHTML = outputStructure[interactionType][date];
+          var cells = {};
+          for(var c = 0; c < dateHeaders.length(); c++){
+            var cell = row.insertCell(c+1);
+            cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
             if(i == 0){
               cell.style.backgroundColor = "#ffaa80";
             }
