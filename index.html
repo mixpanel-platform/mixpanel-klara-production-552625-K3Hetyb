@@ -180,7 +180,7 @@
             var interactionType = 'highlyEngagedData';
           }
           var cells = {};
-          for(var c = 0; c < dateHeaders.length(); c++){
+          for(var c = 0; c < dateHeaders.length; c++){
             var cell = row.insertCell(c+1);
             cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
             if(i == 0){
