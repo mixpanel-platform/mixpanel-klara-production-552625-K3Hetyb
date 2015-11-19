@@ -75,37 +75,37 @@
           to:dateRange.to,
           from:dateRange.from,
           type:'total',
-          unit:'month',
+          unit:'month'
         };
         var activeParams = {
           to:dateRange.to,
           from:dateRange.from,
           type:'total',
-          unit:'month',
+          unit:'month'
         };
         var engagedParams = {
           to:dateRange.to,
           from:dateRange.from,
           type:'total',
-          unit:'month',
+          unit:'month'
         };
         var highlyEngagedParams = {
           to:dateRange.to,
           from:dateRange.from,
           type:'total',
-          unit:'month',
+          unit:'month'
         };
         var finalStruct = [];
         
         // Number of users per category query
-         MP.api.segment(eventName, null, beginnerParams).done(function(results) {
+         MP.api.segment(eventName, 'Email', beginnerParams).done(function(results) {
            // TODO: order results before pushing them in 
            finalStruct.push(results.values());
-           MP.api.segment(eventName, null, activeParams).done(function(results2) {
+           MP.api.segment(eventName, 'Email', activeParams).done(function(results2) {
              finalStruct.push(results2.values());
-             MP.api.segment(eventName, null, engagedParams).done(function(results3) {
+             MP.api.segment(eventName, 'Email', engagedParams).done(function(results3) {
                finalStruct.push(results3.values());
-               MP.api.segment(eventName, null, highlyEngagedParams).done(function(results4) {
+               MP.api.segment(eventName, 'Email', highlyEngagedParams).done(function(results4) {
                 finalStruct.push(results4.values());
                 calculateOutputs(finalStruct);
                });
