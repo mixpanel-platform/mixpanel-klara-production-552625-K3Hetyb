@@ -78,11 +78,55 @@
           unit:'month'
         };
 
-        var finalStruct = [];
+        var finalStruct = {};
         
         // Number of users per category query
          MP.api.segment(eventName, 'Email', params).done(function(results) {
            // TODO: order results before pushing them in 
+           finalStruct['beginnerData'] = {};
+           finalStruct['activeData'] = {};
+           finalStruct['engagedData'] = {};
+           finalStruct['highlyEngagedData'] = {};
+          for(user_email in results.values()){
+            for(date in results.values()[user_email]){
+              // Beginner
+              if(results.values()[user_email][date] < 4){
+                if(!(date in finalStruct['beginnerData'])){
+                  finalStruct['beginnerData'][date] = 1;
+                }
+                else {
+                  finalStruct['beginnerData'][date] = finalStruct['beginnerData'][date] + 1;
+                }
+              }
+              // Active
+              else if(results.values()[user_email][date] > 3 && results.values()[user_email][date] < 20){
+                if(!(date in finalStruct['activeData'])){
+                  finalStruct['activeData'][date] = 1;
+                }
+                else {
+                  finalStruct['activeData'][date] = finalStruct['activeData'][date] + 1;
+                }
+              }
+              // Engaged
+              else if(results.values()[user_email][date] > 19 && results.values()[user_email][date] < 80){
+                if(!(date in finalStruct['engagedData'])){
+                  finalStruct['engagedData'][date] = 1;
+                }
+                else {
+                  finalStruct['engagedData'][date] = finalStruct['engagedData'][date] + 1;
+                }
+              }
+              // Highly engaged
+              else if(results.values()[user_email][date] > 79){
+                if(!(date in finalStruct['highlyEngagedData'])){
+                  finalStruct['highlyEngagedData'][date] = 1;
+                }
+                else {
+                  finalStruct['highlyEngagedData'][date] = finalStruct['highlyEngagedData'][date] + 1;
+                }
+              }
+            }
+          }
            finalStruct.push(results.values());
            calculateOutputs(results.values());
          });
