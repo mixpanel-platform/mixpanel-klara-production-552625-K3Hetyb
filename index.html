@@ -249,12 +249,10 @@
               if(outputStructure[interactionType][dateHeaders[c]] !== undefined){
                 summedValues += outputStructure[interactionType][dateHeaders[c]];
               }
-              else{
-                cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
-              }
             }
-            colCount++;
+            cell.innerHTML = summedValues;
           }
+          colCount++;
         }
 
       }
