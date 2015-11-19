@@ -152,7 +152,7 @@
         var row = table.insertRow(0);
         row.style.color = "white";
         row.style.backgroundColor = "#595959";
-        for(var key in outputStructure[0][eventName]){
+        for(var key in outputStructure['beginnerData']){
           var cell = row.insertCell(colCount);
           cell.innerHTML = key;
           colCount++;
