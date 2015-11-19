@@ -181,7 +181,7 @@
           }
           var cells = {};
           for(var c = 0; c < dateHeaders.length; c++){
-            var cell = row.insertCell(c+1);
+            var cell = row.insertCell(c);
             cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
             if(i == 0){
               cell.style.backgroundColor = "#ffaa80";
