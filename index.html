@@ -84,6 +84,7 @@
          MP.api.segment(eventName, 'Email', params).done(function(results) {
            // TODO: order results before pushing them in 
            finalStruct.push(results.values());
+           calculateOutputs(results.values());
          });
          
          // Number of users per category query cumulative table 
