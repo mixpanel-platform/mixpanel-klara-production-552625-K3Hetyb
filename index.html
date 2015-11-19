@@ -186,6 +186,31 @@
           cell.innerHTML = key;
           colCount++;
         }
+        
+        // Build rows 
+        var newDataStruct = {};
+        
+        for(var i = 0; i < outputStructure.length; i++){
+          var row = table.insertRow(i+1);
+          colCount = 0;
+          for(var key in outputStructure[i][eventName]){
+            var cell = row.insertCell(colCount);
+            cell.innerHTML = outputStructure[i][eventName][key];
+            if(i == 0){
+              cell.style.backgroundColor = "#ffaa80";
+            }
+            else if (i== 1){
+              cell.style.backgroundColor = "#ffff99";
+            }
+            else if(i== 2){
+              cell.style.backgroundColor = "#99ddff";
+            }
+            else if (i ==3){
+              cell.style.backgroundColor = "#99ff66";
+            }
+            colCount++;
+          }
+        }
 
       }
       
