@@ -199,8 +199,8 @@
           }
         }
         
-        /* Build Table 2 
-        
+        /* Build Table 2 */
+        // Get table 2
         var table = document.getElementById("t02");
         
         // Delete previous rows
@@ -208,41 +208,51 @@
           table.deleteRow(0);
         }
         
-        // Build header
+        // Build header - use old dateHeaders
         var colCount = 0;
         var row = table.insertRow(0);
         row.style.color = "white";
         row.style.backgroundColor = "#595959";
-        for(var key in outputStructure[0][eventName]){
+        for(var i = 0; i < dateHeaders.length; i++){
           var cell = row.insertCell(colCount);
-          cell.innerHTML = key;
+          cell.innerHTML = dateHeaders[i];
           colCount++;
         }
         
         // Build rows 
-        var newDataStruct = {};
-        
-        for(var i = 0; i < outputStructure.length; i++){
+        for(var i = 0; i < 4; i++){
+          console.log('row '+i);
           var row = table.insertRow(i+1);
-          colCount = 0;
-          for(var key in outputStructure[i][eventName]){
-            var cell = row.insertCell(colCount);
-            cell.innerHTML = outputStructure[i][eventName][key];
-            if(i == 0){
-              cell.style.backgroundColor = "#ffaa80";
+          if(i == 0){
+            var interactionType = 'beginnerData';
+            row.style.backgroundColor = "#ffaa80";
+          }
+          else if(i == 1){
+            var interactionType = 'activeData';
+            row.style.backgroundColor = "#ffff99";
+          }
+          else if(i == 2){
+            var interactionType = 'engagedData';
+            row.style.backgroundColor = "#99ddff";
+          }
+          else if(i == 3){
+            var interactionType = 'highlyEngagedData';
+            row.style.backgroundColor = "#99ff66";
+          }
+          // Build each cell for the current row
+          // Use the ordered "dateHeaders" list to select the proper count for the date (in order)
+          var cells = {};
+          for(var c = 0; c < dateHeaders.length; c++){
+            var cell = row.insertCell(c);
+            if(outputStructure[interactionType][dateHeaders[c]] == undefined){
+              cell.innerHTML = 0;
             }
-            else if (i== 1){
-              cell.style.backgroundColor = "#ffff99";
-            }
-            else if(i== 2){
-              cell.style.backgroundColor = "#99ddff";
-            }
-            else if (i ==3){
-              cell.style.backgroundColor = "#99ff66";
+            else{
+              cell.innerHTML = outputStructure[interactionType][dateHeaders[c]];
             }
             colCount++;
           }
-        }*/
+        }
 
       }
       
