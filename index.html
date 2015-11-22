@@ -245,6 +245,7 @@
           }
           // Build each cell for the current row
           // Use the ordered "dateHeaders" list to select the proper count for the date (in order)
+          //TODO: CALCULATE %% from previous cell in same column
           var cells = [];
           for(var c = 0; c < dateHeaders.length; c++){
             var cell = row.insertCell(c);
@@ -257,6 +258,7 @@
                 cells.push(summedValues);
                 if(a > 0){
                   var cell2 = row.insertCell(row)
+                  //TODO: fix goes here
                 }
               }
             }
