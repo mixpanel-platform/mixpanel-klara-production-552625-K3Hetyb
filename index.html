@@ -55,21 +55,19 @@
     
     <script>
       /* 
-      Requirements: 
-      - Table 1:
-      - *Table 2: number of users in each category (beginner is 1-3)
-      - *Table 3: cumulative users ( beginner is > 1)
+      Tables: 
+      - *Table 1: number of users in each category (beginner is 1-3)
+      - *Table 2: cumulative users 
         - include conversion rate, i.e. the percentage of advanced who were beginner 
       */ 
       
       /* Variables */
-      var eventName = '$custom_event:64721';
-      var queriesComplete = 0;
+      var eventName = '$custom_event:64721'; // Interaction custom event
       var dateSelect  = $('#dateSelect').MPDatepicker();
 
       /* Query */
-      //TODO: want to run the query on load 
       var runQuery = function() {
+        /* Get date Range */
         var dateRange = dateSelect.MPDatepicker('value');
         
          /* Segmentation Parameters */
@@ -81,6 +79,7 @@
           unit:'month'
         };
 
+        // finalStruct: map of [user level]->[month]->count of users in level at month
         var finalStruct = {};
         
         // Number of users (emails) per category query
@@ -89,6 +88,7 @@
            finalStruct['activeData'] = {};
            finalStruct['engagedData'] = {};
            finalStruct['highlyEngagedData'] = {};
+           // Print results 
            console.log(results.values());
           // Go through results, check interaction count per user, then bucket user into proper bucket
           for(user_email in results.values()){
@@ -139,8 +139,12 @@
          // Number of users per category query cumulative table 
          
       };
+      /* End Query */
       
+      
+      /* Take query results and formulate output tables */
       function calculateOutputs(outputStructure){
+        
         // Print our data structure
         console.log(outputStructure);
         
@@ -205,6 +209,7 @@
             colCount++;
           }
         }
+        /* End Table 1 Build */
         
         /* Build Table 2 */
         // Get table 2
@@ -285,8 +290,9 @@
 
       }
       
-      
+      /* Run query when date select changes */ 
       dateSelect.on('change', runQuery);
+      
     </script>
   </body>
 </html>
