@@ -92,9 +92,10 @@
            console.log(results.values());
           // Go through results, check interaction count per user, then bucket user into proper bucket
           for(user_email in results.values()){
+            // For each user email, check the count and associate it with the date
             for(date in results.values()[user_email]){
               // Beginner
-              if(results.values()[user_email][date] < 4){
+              if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 4){
                 if(!(date in finalStruct['beginnerData'])){
                   finalStruct['beginnerData'][date] = 1;
                 }
