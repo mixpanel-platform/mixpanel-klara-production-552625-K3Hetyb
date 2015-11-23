@@ -252,6 +252,7 @@
           //TODO: CALCULATE %% from previous cell in same column
           var cells = [];
           var rowNum2 = rowNum + 1;
+          var row2 = table.insertRow(rowNum2);
           for(var c = 0; c < dateHeaders.length; c++){
             var cell = row.insertCell(c);
             var summedValues = 0;
@@ -268,7 +269,7 @@
             // Add summed values to array
             cell.innerHTML = summedValues;
             if(i > 0){
-              var row2 = table.insertRow(rowNum2);
+              
               var cell2 = row2.insertCell(c);
               var conversionRate = (summedValues/cellArray[i-1][c])*100;
               console.log(summedValues);
