@@ -250,7 +250,6 @@
           // Build each cell for the current row
           // Use the ordered "dateHeaders" list to select the proper count for the date (in order)
           //TODO: CALCULATE %% from previous cell in same column
-          var cells = [];
           var rowNum2 = rowNum + 1;
           var row2 = table.insertRow(rowNum2);
           for(var c = 0; c < dateHeaders.length; c++){
@@ -261,7 +260,6 @@
               if(outputStructure[interactionTypes[a]][dateHeaders[c]] !== undefined){
                 //console.log('row '+i+' cell '+c+' value '+outputStructure[interactionTypes[a]][dateHeaders[c]]);
                 summedValues += outputStructure[interactionTypes[a]][dateHeaders[c]];
-                cells.push(summedValues);
               }
             }
             // Add to 2D array
@@ -269,14 +267,12 @@
             // Add summed values to array
             cell.innerHTML = summedValues;
             if(i > 0){
-              
               var cell2 = row2.insertCell(c);
               var conversionRate = (summedValues/cellArray[i-1][c])*100;
               console.log(summedValues);
               console.log(cellArray[i-1][c]);
-              cell2.innerHTML = conversionRate.toFixed(2);
+              cell2.innerHTML = conversionRate.toFixed(2)+"% conversion";
             }
-            
           }
           rowNum++;
           rowNum++;
