@@ -206,6 +206,7 @@
         /* Build Table 2 */
         // Get table 2
         var table = document.getElementById("t02");
+        var cellArray = []
         
         // Delete previous rows
         while(table.rows.length > 0) {
@@ -224,9 +225,12 @@
         }
         
         // Build rows 
+        var rowNum =1;
         for(var i = 0; i < 4; i++){
+          // append row to array
+          cellArray.push([]);
           //console.log('row '+i);
-          var row = table.insertRow(i+1);
+          var row = table.insertRow(rowNum);
           if(i == 0){
             var interactionType = 'beginnerData';
             row.style.backgroundColor = "#ffaa80";
@@ -247,6 +251,7 @@
           // Use the ordered "dateHeaders" list to select the proper count for the date (in order)
           //TODO: CALCULATE %% from previous cell in same column
           var cells = [];
+          var rowNum2 = rowNum + 1;
           for(var c = 0; c < dateHeaders.length; c++){
             var cell = row.insertCell(c);
             var summedValues = 0;
@@ -256,12 +261,23 @@
                 //console.log('row '+i+' cell '+c+' value '+outputStructure[interactionTypes[a]][dateHeaders[c]]);
                 summedValues += outputStructure[interactionTypes[a]][dateHeaders[c]];
                 cells.push(summedValues);
-                
+                cellArray[i].push(summedValues);
               }
             }
+            // Add to 2D array
+            cellArray[i].push(summedValues);
+            // Add summed values to array
             cell.innerHTML = summedValues;
+            if(i > 0){
+              var row2 = table.insertRow(rowNum2);
+              var cell2 = row2.insertCell(c);
+              var conversionRate = (summedValues/cellArray[i-1][c])*100;
+              cell2.innerHTML = conversionRate.toFixed(2);
+            }
+            
           }
-          colCount++;
+          rowNum++;
+          rowNum++;
         }
 
       }
