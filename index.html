@@ -272,10 +272,13 @@
               var row2 = table.insertRow(rowNum2);
               var cell2 = row2.insertCell(c);
               var conversionRate = (summedValues/cellArray[i-1][c])*100;
+              console.log(summedValues);
+              console.log(cellArray[i-1][c]);
               cell2.innerHTML = conversionRate.toFixed(2);
             }
             
           }
+          rowNum++;
           rowNum++;
         }
 
