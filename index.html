@@ -256,10 +256,7 @@
                 //console.log('row '+i+' cell '+c+' value '+outputStructure[interactionTypes[a]][dateHeaders[c]]);
                 summedValues += outputStructure[interactionTypes[a]][dateHeaders[c]];
                 cells.push(summedValues);
-                if(a > 0){
-                  var cell2 = row.insertCell(row)
-                  //TODO: fix goes here
-                }
+                
               }
             }
             cell.innerHTML = summedValues;
