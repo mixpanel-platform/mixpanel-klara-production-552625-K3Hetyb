@@ -76,7 +76,7 @@
         var params = {
           to:dateRange.to,
           from:dateRange.from,
-          limit:,
+          limit:2000,
           type:'general',
           unit:'month'
         };
@@ -173,6 +173,7 @@
         
         // Build rows 
         for(var i = 0; i < 4; i++){
+          console.log('row '+i);
           var row = table.insertRow(i+1);
           if(i == 0){
             var interactionType = 'beginnerData';
