@@ -225,12 +225,13 @@
         }
         
         // Build rows 
-        var rowNum =1;
+        // Row number counter
+        var rowNum = 1;
         for(var i = 0; i < 4; i++){
-          // append row to array
+          // append row to array, cellArray[row][column] = value
           cellArray.push([]);
-          //console.log('row '+i);
           var row = table.insertRow(rowNum);
+          // Color and interaction type depends on which row we're on
           if(i == 0){
             var interactionType = 'beginnerData';
             row.style.backgroundColor = "#ffaa80";
@@ -249,28 +250,29 @@
           }
           // Build each cell for the current row
           // Use the ordered "dateHeaders" list to select the proper count for the date (in order)
-          //TODO: CALCULATE %% from previous cell in same column
+          // rowNum2 is the row number we're on + 1... used for adding conversion rate rows
           var rowNum2 = rowNum + 1;
           var row2 = table.insertRow(rowNum2);
+          // For each column, i.e. date header...
           for(var c = 0; c < dateHeaders.length; c++){
+            // Create a cell
             var cell = row.insertCell(c);
             var summedValues = 0;
-            // For each previous row, sum up numbers to get count for current cell
+            // For each previous row in current column, sum up numbers to get count for current cell
             for(var a = i; a < 4; a++){
               if(outputStructure[interactionTypes[a]][dateHeaders[c]] !== undefined){
-                //console.log('row '+i+' cell '+c+' value '+outputStructure[interactionTypes[a]][dateHeaders[c]]);
                 summedValues += outputStructure[interactionTypes[a]][dateHeaders[c]];
               }
             }
-            // Add to 2D array
+            // Add summed value to 2D array
             cellArray[i].push(summedValues);
-            // Add summed values to array
+            // Update cell we're on with summed value
             cell.innerHTML = summedValues;
+            // If we are on a row greater than the first, add conversion rate 
+            // from previous row count to row we are on
             if(i > 0){
               var cell2 = row2.insertCell(c);
               var conversionRate = (summedValues/cellArray[i-1][c])*100;
-              console.log(summedValues);
-              console.log(cellArray[i-1][c]);
               cell2.innerHTML = conversionRate.toFixed(2)+"% conversion";
             }
           }
