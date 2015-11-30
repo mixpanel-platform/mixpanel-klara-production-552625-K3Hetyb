@@ -37,6 +37,7 @@
   <body class="mixpanel-platform-body">
     <div class="mixpanel-platform-section">
       
+    <div id="unitSelect" style="float: right;"></div>  
     <div id="dateSelect" style="float: right;"></div>
     <br clear="all" /><br clear="all" />
     
@@ -64,6 +65,14 @@
       /* Variables */
       var eventName = '$custom_event:64721'; // Interaction custom event
       var dateSelect  = $('#dateSelect').MPDatepicker();
+      var options = {
+        items: [
+          {label: 'Day', value: 'day'},
+          {label: 'Week', value: 'week'},
+          {label: 'Month', value: 'month'}
+        ]
+      };
+      var unitSelect = $('#unitSelect').MPSelect(options);
 
       /* Query */
       var runQuery = function() {
