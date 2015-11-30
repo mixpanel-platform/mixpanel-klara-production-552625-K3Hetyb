@@ -74,10 +74,14 @@
         ]
       };
       var unitSelect = $('#unitSelect').MPSelect(options);
+      var select = "Day";
+      unitSelect.on('change', function(e, selection) {                        
+          select = selection;
+      });
 
       /* Query */
       var runQuery = function() {
-        console.log(unitSelect.selection);
+        console.log(select);
         /* Get date Range */
         var dateRange = dateSelect.MPDatepicker('value');
         
