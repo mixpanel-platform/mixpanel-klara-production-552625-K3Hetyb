@@ -108,7 +108,7 @@
           for(user_email in results.values()){
             // For each user email, check the count and associate it with the date
             // UPDATED VERSION... these number ranges will be different based on what the date input is 
-            //if(month){
+            if(select == 'month'){
               for(date in results.values()[user_email]){
                 // Beginner
                 if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 4){
@@ -147,9 +147,8 @@
                   }
                 }
               }
-            //}
-            /*
-            else if(week){
+            }
+            else if(select == 'week'){
               for(date in results.values()[user_email]){
                 // Beginner
                 if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 2){
@@ -189,7 +188,7 @@
                 }
               }
             }
-            else if(day){
+            else if(select == 'day'){
               for(date in results.values()[user_email]){
                 // Beginner
                 if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 2){
@@ -228,7 +227,7 @@
                   }
                 }
               }
-            }*/
+            }
           }
           
           // Calculate outputs
