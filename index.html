@@ -189,10 +189,14 @@
                 }
               }
             }
+            /* TODO: this doesn't work because monthly beginner = 0 to 3, which means daily beginner would be 
+              0 to 3/28, which is a range of 0 to .107 interactions (obviously not possible). I adjusted the
+              thresholds to make more sense, but they're not as accurate with the month and week analysis 
+            */
             else if(select == 'day'){
               for(date in results.values()[user_email]){
                 // Beginner
-                if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 2){
+                if(results.values()[user_email][date]  == 0){
                   if(!(date in finalStruct['beginnerData'])){
                     finalStruct['beginnerData'][date] = 1;
                   }
@@ -201,7 +205,7 @@
                   }
                 }
                 // Active
-                else if(results.values()[user_email][date] > 1 && results.values()[user_email][date] < 5){
+                else if(results.values()[user_email][date] == 1){
                   if(!(date in finalStruct['activeData'])){
                     finalStruct['activeData'][date] = 1;
                   }
