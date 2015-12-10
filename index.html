@@ -93,7 +93,7 @@
           type:'general',
           unit:'month'
         };
-
+        alert(options.value);
         // finalStruct: map of [user level]->[month]->count of users in level at month
         var finalStruct = {};
         
@@ -109,7 +109,7 @@
           for(user_email in results.values()){
             // For each user email, check the count and associate it with the date
             // UPDATED VERSION... these number ranges will be different based on what the date input is 
-            if(month){
+            //if(month){
               for(date in results.values()[user_email]){
                 // Beginner
                 if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 4){
@@ -148,7 +148,8 @@
                   }
                 }
               }
-            }
+            //}
+            /*
             else if(week){
               for(date in results.values()[user_email]){
                 // Beginner
@@ -228,7 +229,7 @@
                   }
                 }
               }
-            }
+            }*/
           }
           
           // Calculate outputs
