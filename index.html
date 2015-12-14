@@ -244,8 +244,11 @@
             }
           }
           
-          // Calculate outputs
+          // Calculate outputs - T1 and T2
           calculateOutputs(finalStruct);
+          
+          // Calculate output - T3
+          calculatePeopleList(results.values());
          });
          // Number of users per category query cumulative table 
          
@@ -399,6 +402,11 @@
           rowNum++;
         }
 
+      }
+      
+      function calculatePeopleList(input){
+        console.log('in calculatePeopleList');
+        console.log(input);
       }
       
       /* Run query when date select changes */ 
