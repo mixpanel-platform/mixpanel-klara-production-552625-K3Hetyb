@@ -429,7 +429,12 @@
           dateHeaders.sort();
           for(var i = 0; i < dateHeaders.length; i++){
             var cell = row.insertCell(colCount);
-            cell.innerHTML = dateHeaders[i];
+            if(i == 0){
+              cell.innerHTML = "Email";
+            }
+            else{
+              cell.innerHTML = dateHeaders[i];
+            }
             colCount++;
           }
           break;
