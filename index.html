@@ -408,6 +408,14 @@
         console.log('in calculatePeopleList');
         console.log(input);
         
+        // Initialize table
+        var table = document.getElementById("t03");
+        
+        // Delete previous rows
+        while(table.rows.length > 0) {
+          table.deleteRow(0);
+        }
+        
         // Build header
         var colCount = 0;
         var row = table.insertRow(0);
