@@ -407,6 +407,25 @@
       function calculatePeopleList(input){
         console.log('in calculatePeopleList');
         console.log(input);
+        
+        // Build header
+        var colCount = 0;
+        var row = table.insertRow(0);
+        row.style.color = "white";
+        row.style.backgroundColor = "#595959";
+        var dateHeaders = [];
+        for(email in input){
+          for(var date in input[email]){
+            dateHeaders.push(date);
+          }
+          dateHeaders.sort();
+          for(var i = 0; i < dateHeaders.length; i++){
+            var cell = row.insertCell(colCount);
+            cell.innerHTML = dateHeaders[i];
+            colCount++;
+          }
+          break;
+        }
       }
       
       /* Run query when date select changes */ 
