@@ -461,9 +461,68 @@
         }
       }
       
-      /* Helper function - returns cell color based on number and time unit */
-      function cellColor(number, timeUnit){
+      /* Helper function - returns cell color based on number and time unit (select) */
+      function cellColor(number){
         
+        // Month selected
+        if(select == 'month'){
+          // Beginner
+          if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 4){
+            return "#ffaa80";
+          }
+          // Active
+          else if(results.values()[user_email][date] > 3 && results.values()[user_email][date] < 20){
+            return "#ffff99";
+          }
+          // Engaged
+          else if(results.values()[user_email][date] > 19 && results.values()[user_email][date] < 80){
+            return "#99ddff";
+          }
+          // Highly engaged
+          else if(results.values()[user_email][date] > 79){
+            return "#99ff66";
+          }
+        }
+        
+        // Week selected
+        else if(select == 'week'){
+          // Beginner
+          if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 2){
+            return "#ffaa80";
+          }
+          // Active
+          else if(results.values()[user_email][date] > 1 && results.values()[user_email][date] < 5){
+            return "#ffff99";
+          }
+          // Engaged
+          else if(results.values()[user_email][date] > 4 && results.values()[user_email][date] < 20){
+            return "#99ddff";
+          }
+          // Highly engaged
+          else if(results.values()[user_email][date] > 19){
+            return "#99ff66";
+          }
+        }
+        
+        // Day selected
+        else if(select == 'day'){
+          // Beginner
+          if(results.values()[user_email][date]  == 0){
+            return "#ffaa80";
+          }
+          // Active
+          else if(results.values()[user_email][date] == 1){
+            return "#ffff99";
+          }
+          // Engaged
+          else if(results.values()[user_email][date] > 4 && results.values()[user_email][date] < 20){
+            return "#99ddff";
+          }
+          // Highly engaged
+          else if(results.values()[user_email][date] > 19){
+            return "#99ff66";
+          }
+        }
       }
       
       /* Run query when date select changes */ 
