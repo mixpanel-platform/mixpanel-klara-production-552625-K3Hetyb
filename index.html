@@ -430,14 +430,14 @@
               dateHeaders.push(date);
             }
             dateHeaders.sort();
-            for(var i = 0; i < dateHeaders.length; i++){
+            
+            // Add first cell
+            var cell = row.insertCell(colCount);
+            cell.innerHTML = "Email";
+            colCount++;
+            for(var i = 1; i < dateHeaders.length+1; i++){
               var cell = row.insertCell(colCount);
-              if(i == 0){
-                cell.innerHTML = "Email";
-              }
-              else{
-                cell.innerHTML = dateHeaders[i];
-              }
+              cell.innerHTML = dateHeaders[i];
               colCount++
             }
              rowCount++;
