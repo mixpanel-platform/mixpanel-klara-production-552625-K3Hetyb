@@ -445,14 +445,13 @@
             //break;
           }
           
-          /* LEFT OFF HERE */
-          /* NEED TO BUILD THE SUBSEQUENT ROWS */
-          console.log(dateHeaders);
+          // Build row with email column and event counts 
           var row = table.insertRow(rowCount);
           // email column
           var cell = row.insertCell(colCount);
           cell.innerHTML = email;
           colCount++;
+          // All subsequent columns 
           for(var i = 0; i < dateHeaders.length; i++){
             var cell = row.insertCell(colCount);
             cell.innerHTML = input[email][dateHeaders[i]];
