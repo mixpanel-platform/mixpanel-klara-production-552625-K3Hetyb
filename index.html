@@ -454,6 +454,7 @@
           // All subsequent columns 
           for(var i = 0; i < dateHeaders.length; i++){
             var cell = row.insertCell(colCount);
+            cell.style.backgroundColor = cellColor(input[email][dateHeaders[i]]);
             cell.innerHTML = input[email][dateHeaders[i]];
             colCount++;
           }
