@@ -468,19 +468,19 @@
         // Month selected
         if(select == 'month'){
           // Beginner
-          if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 4){
+          if(number >0 && number < 4){
             return "#ffaa80";
           }
           // Active
-          else if(results.values()[user_email][date] > 3 && results.values()[user_email][date] < 20){
+          else if(number > 3 && number < 20){
             return "#ffff99";
           }
           // Engaged
-          else if(results.values()[user_email][date] > 19 && results.values()[user_email][date] < 80){
+          else if(number > 19 && number < 80){
             return "#99ddff";
           }
           // Highly engaged
-          else if(results.values()[user_email][date] > 79){
+          else if(number > 79){
             return "#99ff66";
           }
         }
@@ -488,19 +488,19 @@
         // Week selected
         else if(select == 'week'){
           // Beginner
-          if(results.values()[user_email][date] >0 && results.values()[user_email][date] < 2){
+          if(number >0 && number < 2){
             return "#ffaa80";
           }
           // Active
-          else if(results.values()[user_email][date] > 1 && results.values()[user_email][date] < 5){
+          else if(number > 1 && number < 5){
             return "#ffff99";
           }
           // Engaged
-          else if(results.values()[user_email][date] > 4 && results.values()[user_email][date] < 20){
+          else if(number > 4 && number < 20){
             return "#99ddff";
           }
           // Highly engaged
-          else if(results.values()[user_email][date] > 19){
+          else if(number > 19){
             return "#99ff66";
           }
         }
@@ -508,19 +508,19 @@
         // Day selected
         else if(select == 'day'){
           // Beginner
-          if(results.values()[user_email][date]  == 0){
+          if(number  == 0){
             return "#ffaa80";
           }
           // Active
-          else if(results.values()[user_email][date] == 1){
+          else if(number == 1){
             return "#ffff99";
           }
           // Engaged
-          else if(results.values()[user_email][date] > 4 && results.values()[user_email][date] < 20){
+          else if(number > 4 && number < 20){
             return "#99ddff";
           }
           // Highly engaged
-          else if(results.values()[user_email][date] > 19){
+          else if(number > 19){
             return "#99ff66";
           }
         }
