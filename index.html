@@ -91,7 +91,6 @@
 
       /* Query */
       var runQuery = function() {
-        console.log(select);
         /* Get date Range */
         var dateRange = dateSelect.MPDatepicker('value');
         
@@ -407,6 +406,7 @@
       function calculatePeopleList(input){
         console.log('in calculatePeopleList');
         console.log(input);
+        console.log(select);
         
         // Initialize table
         var table = document.getElementById("t03");
