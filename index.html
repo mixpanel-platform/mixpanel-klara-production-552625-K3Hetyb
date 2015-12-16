@@ -449,6 +449,15 @@
           /* NEED TO BUILD THE SUBSEQUENT ROWS */
           console.log(dateHeaders);
           
+          // email column
+          var cell = row.insertCell(colCount);
+          cell.innerHTML = email;
+          colCount++;
+          for(var i = 0; i < dateHeaders.length; i++){
+            var cell = row.insertCell(colCount);
+            cell.innerHTML = input[email][dateHeaders[i]];
+            colCount++;
+          }
           rowCount++;
           break;
         }
