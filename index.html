@@ -222,7 +222,7 @@
                   }
                 }
                 // Engaged
-                else if(results.values()[user_email][date] > 4 && results.values()[user_email][date] < 20){
+                else if(results.values()[user_email][date] > 1 && results.values()[user_email][date] < 4){
                   if(!(date in finalStruct['engagedData'])){
                     finalStruct['engagedData'][date] = 1;
                   }
@@ -231,7 +231,7 @@
                   }
                 }
                 // Highly engaged
-                else if(results.values()[user_email][date] > 19){
+                else if(results.values()[user_email][date] > 3){
                   if(!(date in finalStruct['highlyEngagedData'])){
                     finalStruct['highlyEngagedData'][date] = 1;
                   }
@@ -516,11 +516,11 @@
             return "#ffff99";
           }
           // Engaged
-          else if(number > 4 && number < 20){
+          else if(number > 1 && number < 4){
             return "#99ddff";
           }
           // Highly engaged
-          else if(number > 19){
+          else if(number > 3){
             return "#99ff66";
           }
         }
