@@ -69,7 +69,7 @@
       - *Table 1: number of users in each category (beginner is 1-3)
       - *Table 2: cumulative users 
         - include conversion rate, i.e. the percentage of advanced who were beginner
-      - Table 3: interactions per user 
+      - *Table 3: interactions per user 
       */ 
       
       /* Variables */
@@ -116,7 +116,6 @@
           // Go through results, check interaction count per user, then bucket user into proper bucket
           for(user_email in results.values()){
             // For each user email, check the count and associate it with the date
-            // UPDATED: these number ranges will be different based on what the date input is 
             if(select == 'month'){
               for(date in results.values()[user_email]){
                 // Beginner
@@ -403,11 +402,10 @@
 
       }
       
+      /* This calculates and builds the email table */
       function calculatePeopleList(input){
-        console.log('in calculatePeopleList');
         console.log(input);
-        console.log(select);
-        
+
         // Initialize table
         var table = document.getElementById("t03");
         
@@ -442,7 +440,6 @@
             }
              rowCount++;
              colCount = 0;
-            //break;
           }
           
           // Build row with email column and event counts 
